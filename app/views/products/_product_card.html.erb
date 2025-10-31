@@ -1,0 +1,13 @@
+<div class="card" style=" background-color:#222; border-radius: 10px; color:black; margin:10px; padding:10px;width: 18rem;">
+
+  <%# <img src="..." class="card-img-top" alt="..."> %>
+  <div class="card-body">
+    <h5 class="card-title">Card title: <%= link_to product.name, product_path(product.id)%> </h5>
+    <button class="product-btn" data-product-name="<%= product.name%>">Click Me</button>
+    <button class="product-btn" data-product-name="<%= product.name %>">
+      Click <%= product.name %>
+    </button>
+    <p class="card-text"><%=product.price%></p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>

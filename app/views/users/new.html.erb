@@ -1,0 +1,26 @@
+<h2>Create  User</h2>
+
+<%= form_with model:@usr, local:true do |form| %>
+
+        <%= form.label :name%>
+        <%= form.text_field :name%><br>
+        
+        <%= form.label :age%>
+        <%= form.text_field :age%><br>
+
+        <%= form.label :bio%>
+        <%= form.text_area :bio%><br>
+        
+        <%= form.label :mail%>
+        <%= form.email_field :mail%><br>
+
+        <%= form.label :password%>
+        <%= form.password_field :password%><br>
+
+        <%= form.label :avatar %>
+        <%= form.file_field :avatar %>
+
+        <br>
+        <%= form.submit "Create_User" %>
+
+<%end %>

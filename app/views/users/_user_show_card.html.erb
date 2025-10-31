@@ -1,0 +1,20 @@
+<div class="user-show-card" style= "font-weight: bold; background-color:white; color:black; padding:10px;">
+  <h2><%= link_to user.name.capitalize, user_path(user.id) %></h2>
+<p>Age: <%= user.age %></p>
+<p>Bio: <%= user.bio %></p>
+<p>mail: <%= user.mail %></p>
+<p>Gender: <%= user.gender%></p>
+
+<p> joined <%= joined_datetwo(user) %>   </p>
+<%= image_tag @user.avatar if @user.avatar.attached? %>
+
+
+</div>
+
+
+<div data-controller="usershow" data-usershow-user-value = "<%= user.to_json %>" >
+  <button data-action="click->usershow#greet">Click me</button>
+  <button data-action="click->usershow#showname">
+  show-name
+  </button>
+</div>

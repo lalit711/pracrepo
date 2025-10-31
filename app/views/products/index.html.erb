@@ -1,0 +1,53 @@
+<h1>Products</h1>
+<%= javascript_importmap_tags %>
+<%=content_for:footer do %>
+this is a footer 
+<% end %>
+<div >
+<% @products.each do |product|%>
+    <div> <%= link_to product.name, product_path(product.id)%> <%= number_to_currency(product.price) %>
+    <%= ProductPresenter.new(product, self).call %>
+    <br>
+    <%=  product.rating%> ⭐    
+    
+
+    <div>Created <%= time_ago_in_words(product.created_at) %> ago</div>
+    <%= ProductPresenter.new(product,self).joined_date %>
+    </div>
+    <br>
+
+
+    <%= render partial: 'product_card', locals: {product:product }%>
+<% end %>
+</div>
+
+<h1>Products from apiii</h1>
+
+<% @products_fromapi.each do |x|%>
+
+<div>   
+    <p class= "inline-text"> <strong> Title:</strong><%= x["title"] %> 
+    <%= image_tag x["thumbnail"], alt: "thumbnail", class: "inline-image" ,width: "100", height: "50" %>  <br>
+    <strong>Price: </strong><%= x["price"] %> <br>
+    <% if !x["thumbnail"].empty?%>
+    <%end%>
+
+</div>
+
+<%end %>
+
+
+
+<hr>
+
+<div class="pagination">
+  <% if @page > 1 %>
+    <%= link_to "⬅️ Previous", products_path(page: @page - 1), class: "btn" %>
+  <% end %>
+
+  <span>Page <%= @page %> of <%= @total_pages %></span>
+
+  <% if @page < @total_pages %>
+    <%= link_to "Next ➡️", products_path(page: @page + 1), class: "btn" %>
+  <% end %>
+</div>

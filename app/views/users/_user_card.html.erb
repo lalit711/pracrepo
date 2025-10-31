@@ -1,0 +1,10 @@
+<div class="user-card" style= "background-color:black; color:white">
+  <h2><%= link_to user.name.capitalize, user_path(user.id) %></h2>
+
+<p> <%= user.age if user.age? %> </p>
+<p> <%=user.bio.capitalize if user.bio? %> </p>
+
+
+<p> joined <%= joined_datetwo(user) %>   </p>
+<h2> this is username: <%= Rails.application.credentials.dig(:development, :database, :username)%></h2>
+</div>

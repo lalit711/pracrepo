@@ -1,0 +1,13 @@
+<%= render partial: "user_show_card",locals:{user:@user}%>
+
+<div >
+    <%if !@comments.empty? %>
+        <% @comments.each do |comment| %>
+            <%= link_to comment.product.name, product_path(comment.product.id) %>
+            <div id="jkls"><%= comment.body%><br> </div>
+        <% end %>
+    <% else %>
+        <p>no comments done by <%=@user.name.capitalize%> </p>
+    <% end %>
+</div>
+<%= link_to "update user details ", edit_user_path%>

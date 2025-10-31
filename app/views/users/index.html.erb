@@ -1,0 +1,29 @@
+<h1>All - Users </h1>
+
+<% content_for :title do %>
+  USERSS
+<% end %>
+
+<%= content_for :head do %>
+    USERS AREE THIS 
+<%end%>
+
+
+<%= content_for :footer do %>
+    THIS IS A FOOTER MADE BY ME FROM CONTENT_FOR
+<%end%>
+
+
+<div >
+<% @users.each do |user|%>
+    <%# <div> <%= link_to i.name, user_path(i.id)  %>
+    <%= render partial: 'user_card',locals:{user:user}%>
+    <br> 
+    </div>
+    <br>
+<% end %>
+</div>
+<%= link_to "make new user ", new_user_path  %>
+</div>
+
+

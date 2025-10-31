@@ -1,0 +1,39 @@
+<h1>Products</h1>
+<div>
+<%=@product.name.capitalize%>
+<%=@product.price%> $
+<br>
+<%=@product.rating %> ⭐
+<br>  
+<%= @product.available ? "Available":"Not- Available"%>
+       
+<h4>COMMENTS </h4>
+
+<% if !@comments.empty? %>
+    <% @comments.each do |i| %>
+    <p>
+    <%= i.body%>
+    <%= link_to i.user.name.capitalize , user_path(i.user.id)%>
+    </p>
+    <%end %>
+<% else %>
+  <p>NO comments yet.</p>
+  <p>comment your views about it.</p>
+<% end %>
+<%= form_with model: @new_comment,local: true do |form| %>
+    <%= form.hidden_field :product_id, value:@product.id  %>
+    <%= form.hidden_field :user_id, value:2  %>
+    <%= form.label:body %>
+    <%= form.text_field :body %>
+    <%= form.submit "Post comment " %>
+
+    <%= form.label :subscribe %>
+    <%= form.check_box :subscribe , checked:true %>
+    
+    <%= form.label :paid? %>
+     <%= form.check_box :paid %>
+    <% end %>       
+</div>
+
+
+
