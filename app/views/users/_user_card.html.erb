@@ -1,4 +1,4 @@
-<div class="user-card" style= "background-color:black; color:white">
+<div class="user-card" style= "background-color:transparent; width:50em; height:auto; border:solid black 2px; color:white">
   <h2><%= link_to user.name.capitalize, user_path(user.id) %></h2>
 
 <p> <%= user.age if user.age? %> </p>
@@ -7,4 +7,4 @@
 
 <p> joined <%= joined_datetwo(user) %>   </p>
 <h2> this is username: <%= Rails.application.credentials.dig(:development, :database, :username)%></h2>
-</div>
+</div>``

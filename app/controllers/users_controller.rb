@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:create]
+  skip_before_action :verify_authenticity_token, only: [ :create ]
   def usercreation99
     @user = User.find(params[:id])
   end
@@ -15,9 +15,9 @@ class UsersController < ApplicationController
   def create
     @usr = User.new(user_paramstwo)
     if @usr.save
-      redirect_to @usr, notice:"user created successfully "
+      redirect_to @usr, notice: "user created successfully "
     else
-      redirect_to new_user_path, notice:"user not created successfully "
+      redirect_to new_user_path, notice: "user not created successfully "
     end
   end
 
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     @usr = User.new
   end
 
-  def edit 
+  def edit
     @user = User.find(params[:id])
   end
 
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to @user
-      else
+    else
       flash.now[:notice] = "Not successfully edited"
       render :edit
     end
@@ -42,10 +42,10 @@ class UsersController < ApplicationController
 
   def user_paramstwo
     # params.require(:user).permit(:name,:age,:mail,:bio)
-    params.require(:user).permit(:name,:age,:mail,:bio,:gender,:password,:avatar)
+    params.require(:user).permit(:name, :age, :mail, :bio, :gender, :password, :avatar)
   end
-  private 
+  private
   def user_params
-    params.require(:user).permit(:name, :age, :bio, :mail,:gender,:avatar)
+    params.require(:user).permit(:name, :age, :bio, :mail, :gender, :avatar)
   end
 end

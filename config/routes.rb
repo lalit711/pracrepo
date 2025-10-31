@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  
   get "comments/new"
   # get "comments/create"
   # get "users/index"
@@ -10,28 +9,28 @@ Rails.application.routes.draw do
   # get "products/index"
   # get "products/show"
   root "products#index"
-  
-  resources :products, only: [:index, :show ]
-  resources :users 
+
+  resources :products, only: [ :index, :show ]
+  resources :users
   resource :user
-  resources :comments, only:[:create] 
+  resources :comments, only: [ :create ]
   post "comment"=>"comments#create"
 
-  resources :products do 
-    member do 
-      get "kissfolmj",to:"product#index",as:"lalit"
+  resources :products do
+    member do
+      get "kissfolmj", to: "product#index", as: "lalit"
     end
   end
 
 
   namespace :api do
     namespace :v1 do
-      resources :users, only:[:index,:show, :create,:destroy,:update]
-      resources :products, only: [:index, :show, :create, :update, :destroy]
+      resources :users, only: [ :index, :show, :create, :destroy, :update ]
+      resources :products, only: [ :index, :show, :create, :update, :destroy ]
     end
   end
-      # namespace :v1 do      end
-    # end
+  # namespace :v1 do      end
+  # end
 
 
 

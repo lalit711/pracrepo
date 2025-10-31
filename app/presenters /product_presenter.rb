@@ -1,10 +1,9 @@
 class ProductPresenter
-    
-    def initialize(product,view)
+    def initialize(product, view)
         @product = product
         @view =view
     end
-    
+
     def call
         if @product.rating >=4
             @view.content_tag(:div, "Amazon's choice", class: "products")

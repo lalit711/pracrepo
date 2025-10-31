@@ -5,12 +5,12 @@ class User < ApplicationRecord
   validates :password, presence: true, on: create
   normalizes :mail, with: ->(e) { e.strip.downcase }
   # alias_attribute :full_name, :name
-  alias_attribute :f_name, :name 
+  alias_attribute :f_name, :name
 
   after_create :afc
 
   private
-  def afc 
+  def afc
     puts "the user got created "
   end
 end
