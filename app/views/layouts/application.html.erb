@@ -24,6 +24,16 @@
   </head>
 
   <body>
+      <header>
+        <div style=" background:linear-gradient(0.25turn, #d37979ff, #ebf8e1, #4e8bdaff); border: double black; display: flex; justify-content:space-between; gap: 15px; height:80px">
+          <div style=" dislay:flex; justify-content:start;">    <%=image_tag 'modi2.jpeg', alt:"logo", height:"80px"%></div>
+          <div style=" dislay:flex; justify-content:start;" >
+              <%=link_to "Products", products_path%>
+              <%=link_to "Users", users_path %>     
+              
+              </div> 
+        </div>    
+      </header>
     <main>
       <%= yield %>
     </main>
