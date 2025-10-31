@@ -1,9 +1,9 @@
 class ProductsController < ApplicationController
-  require 'httparty'
-  before_action :apiii , only: [:index]
+  require "httparty"
+  before_action :apiii, only: [ :index ]
   def index
     @products = Product.all
-    @products_fromapi = @response['products']
+    @products_fromapi = @response["products"]
   end
 
   def show
@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
     page = params[:page].to_i
     page = 1 if page < 1
     skip = (page -1) * limit
-    
+
     url = "https://dummyjson.com/products?limit=#{limit}&skip=#{skip}"
 
 
@@ -26,5 +26,4 @@ class ProductsController < ApplicationController
     @page = page
     @total_pages = (@total / limit.to_f).ceil
   end
-
 end

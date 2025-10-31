@@ -6,10 +6,9 @@ gem "rails", "~> 8.0.3"
 gem "propshaft"
 
 # for httarty
-gem 'httparty'
+gem "httparty"
 
-
-# firebase 
+# for firebase
 gem "google-cloud-storage", "~> 1.44"
 gem "googleauth"
 # Use sqlite3 as the database for Active Record
@@ -69,4 +68,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-
