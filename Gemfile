@@ -9,7 +9,7 @@ gem "propshaft"
 gem "httparty"
 
 # for firebase
-gem "google-cloud-storage", "~> 1.44"
+gem "google-cloud-storage", "~> 1.57"
 gem "googleauth"
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", ">= 2.1"
